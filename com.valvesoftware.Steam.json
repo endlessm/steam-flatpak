@@ -7,26 +7,18 @@
     "command": "steam",
     "separate-locales": false,
     "finish-args": [
-        /* X11 + XShm access */
         "--share=ipc", "--socket=x11",
-        /* Sound access */
         "--socket=pulseaudio",
-        /* Network access */
         "--share=network",
-        /* Media keys: */
         "--talk-name=org.gnome.SettingsDaemon",
-        /* Device access */
         "--device=all",
-        /* Run 32 bit binaries */
         "--allow=multiarch",
-        /* Access to home so it saves .steam */
         "--filesystem=home"
     ],
     "build-options" : {
         "cflags": "-O2 -g",
         "cxxflags": "-O2 -g",
         "env": {
-            /* Needed for libxml2 */
             "PREFIX": "/app/"
         }
     },
@@ -171,8 +163,6 @@
             ],
             "post-install": [
                 "mv /app/share/applications/steam.desktop /app/share/applications/com.valvesoftware.Steam.desktop",
-                /* Remove the steamdeps binary so Steam doesn't check for dependencies (it uses
-                 * apt-cache which is not supported in Flatpak) */
                 "rm /app/bin/steamdeps"
             ]
         }
