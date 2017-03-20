@@ -1,0 +1,180 @@
+{
+    "app-id": "com.valvesoftware.Steam",
+    "runtime": "com.endlessm.Platform",
+    "runtime-version": "eos3.1",
+    "sdk": "com.endlessm.Sdk",
+    "branch": "master",
+    "command": "steam",
+    "separate-locales": false,
+    "finish-args": [
+        /* X11 + XShm access */
+        "--share=ipc", "--socket=x11",
+        /* Sound access */
+        "--socket=pulseaudio",
+        /* Network access */
+        "--share=network",
+        /* Media keys: */
+        "--talk-name=org.gnome.SettingsDaemon",
+        /* Device access */
+        "--device=all",
+        /* Run 32 bit binaries */
+        "--allow=multiarch",
+        /* Access to home so it saves .steam */
+        "--filesystem=home"
+    ],
+    "build-options" : {
+        "cflags": "-O2 -g",
+        "cxxflags": "-O2 -g",
+        "env": {
+            /* Needed for libxml2 */
+            "PREFIX": "/app/"
+        }
+    },
+    "cleanup": ["*.la", "*.a"],
+    "modules": [
+        {
+            "name": "libxml2",
+            "config-opts": ["--with-python-install-dir=/app/lib/python2.7/dist-packages"],
+            "sources": [
+                {
+		    "type": "shell",
+		    "commands": [
+			"mkdir -p /app/lib/python2.7/dist-packages"
+		    ]
+		},
+                {
+                    "type": "archive",
+                    "url": "http://xmlsoft.org/sources/libxml2-2.9.4.tar.gz",
+                    "sha256": "ffb911191e509b966deb55de705387f14156e1a56b21824357cdf0053233633c"
+                }
+            ]
+        },
+        {
+            "name": "itstool",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://files.itstool.org/itstool/itstool-2.0.2.tar.bz2",
+                    "sha256": "bf909fb59b11a646681a8534d5700fec99be83bb2c57badf8c1844512227033a"
+                }
+            ]
+        },
+        {
+            "name": "zenity",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://ftp.gnome.org/pub/GNOME/sources/zenity/3.22/zenity-3.22.0.tar.xz",
+                    "sha256": "1ecdfa1071d383b373b8135954b3ec38d402d671dcd528e69d144aff36a0e466"
+                }
+            ]
+        },
+        {
+            "name": "steam-libs32",
+            "no-autogen": true,
+            "sources" : [
+                {
+	            "type": "file",
+	            "url": "http://ftp.de.debian.org/debian/pool/main/g/glibc/libc6_2.19-18+deb8u7_i386.deb",
+	            "sha256": "09d12ca8ea1f80364c467d00e513ce1cd30283938cd3bbb3eea8cc7c21d31dc9",
+	            "dest": "lib32-debs"
+	        },
+                {
+	            "type": "file",
+	            "url": "http://ftp.de.debian.org/debian/pool/main/g/gcc-4.9/libstdc++6_4.9.2-10_i386.deb",
+	            "sha256": "34da37408e543cb0fe70cd3750dac3c17f88ba9ac2c65c2d239c35044acc1377",
+	            "dest": "lib32-debs"
+	        },
+	        {
+	            "type": "file",
+	            "url": "http://ftp.de.debian.org/debian/pool/main/g/gcc-4.9/libgcc1_4.9.2-10_i386.deb",
+	            "sha256": "927de0ffa40ac9e0fde74823e5cd7042e3871735a078f6ef943c9f898ec8aef5",
+	            "dest": "lib32-debs"
+	        },
+	        {
+	            "type": "file",
+	            "url": "http://ftp.de.debian.org/debian/pool/main/libd/libdrm/libdrm-nouveau2_2.4.58-2_i386.deb",
+	            "sha256": "92afb556b8fbfc95ecd6950b4e4f4d7d3db74cca3ba87773139b6566fb6164b3",
+	            "dest": "lib32-debs"
+	        },
+	        {
+	            "type": "file",
+	            "url": "http://ftp.de.debian.org/debian/pool/main/libd/libdrm/libdrm-radeon1_2.4.58-2_i386.deb",
+	            "sha256": "83a93427a1ff189a9d48c2babff0133263d1da0b246935c2af68795e1877db2e",
+	            "dest": "lib32-debs"
+	        },
+	        {
+	            "type": "file",
+	            "url": "http://ftp.de.debian.org/debian/pool/main/libp/libpciaccess/libpciaccess0_0.13.2-3+b1_i386.deb",
+	            "sha256": "a4b4794d5d4af7feec5a2dcab0bde35950251546ae8f7af5d468f82b82858c58",
+	            "dest": "lib32-debs"
+	        },
+                {
+	            "type": "file",
+	            "url": "http://ftp.de.debian.org/debian/pool/main/m/mesa/libgl1-mesa-dri_10.3.2-1+deb8u1_i386.deb",
+	            "sha256": "b770341a6a5754ef30ab7ebf4000fc7da50b5d459d8add63c4d75f0d7bc6d8c2",
+	            "dest": "lib32-debs"
+                },
+                {
+	            "type": "file",
+	            "url": "http://ftp.de.debian.org/debian/pool/main/m/mesa/libgl1-mesa-glx_10.3.2-1+deb8u1_i386.deb",
+	            "sha256": "11aee5275de4a92d297a785f79ffc1696db99e2761af63355aa7ebe34139ecaa",
+	            "dest": "lib32-debs"
+                },
+                {
+	            "type": "file",
+	            "url": "http://ftp.de.debian.org/debian/pool/main/m/mesa/libglapi-mesa_10.3.2-1+deb8u1_i386.deb",
+	            "sha256": "3b39319fbb66afcf17ba1e6bef9c5583eb873cbd14621821143babb0f855529e",
+	            "dest": "lib32-debs"
+                },
+                {
+	            "type": "file",
+	            "url": "http://ftp.de.debian.org/debian/pool/main/libx/libxshmfence/libxshmfence1_1.1-4_i386.deb",
+	            "sha256": "8648728a4d9df59cf01978ae37d4a02c16504502d7e88b9bdb041b78d33f9fdb",
+	            "dest": "lib32-debs"
+                },
+                {
+	            "type": "file",
+	            "url": "http://ftp.de.debian.org/debian/pool/main/libd/libdrm/libdrm-intel1_2.4.58-2_i386.deb",
+	            "sha256": "2c975bb6bb1498e1dc4b71a9a6de9c6371ca8c75d6593eb9ba518191584c90e3",
+	            "dest": "lib32-debs"
+                },
+                {
+	            "type": "file",
+	            "url": "http://ftp.de.debian.org/debian/pool/main/libd/libdrm/libdrm2_2.4.58-2_i386.deb",
+	            "sha256": "6ddda8bdf34a52cbfd116a48320296c6de31841312beec1c8d4772a431602500",
+	            "dest": "lib32-debs"
+                },
+                {
+                    "type": "file",
+                    "path": "steamdeps-Makefile",
+                    "dest-filename": "Makefile"
+                }
+            ]
+        },
+        {
+            "name": "steam",
+            "no-autogen": true,
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://repo.steampowered.com/steam/archive/precise/steam_latest.tar.gz",
+                    "sha256": "42531bf2615afed54c333ae9afeebe8cb68a31304ddfcf90e61b3532a5597386"
+                },
+                {
+                    "type": "shell",
+                    "commands": [
+                        "sed -i s:Icon=steam:Icon=com.valvesoftware.Steam: steam.desktop",
+                        "sed -i s:/usr/lib/:/app/lib/: steam"
+                    ]
+                }
+            ],
+            "post-install": [
+                "mv /app/share/applications/steam.desktop /app/share/applications/com.valvesoftware.Steam.desktop",
+                /* Remove the steamdeps binary so Steam doesn't check for dependencies (it uses
+                 * apt-cache which is not supported in Flatpak) */
+                "rm /app/bin/steamdeps"
+            ]
+        }
+    ]
+}
