@@ -13,7 +13,8 @@
         "--talk-name=org.gnome.SettingsDaemon",
         "--device=all",
         "--allow=multiarch",
-        "--filesystem=home"
+        "--filesystem=home",
+        "--env=LD_LIBRARY_PATH=/app/lib:/app/lib/dri:/app/lib/mesa:/usr/lib/:/usr/lib64"
     ],
     "build-options" : {
         "cflags": "-O2 -g",
@@ -135,6 +136,30 @@
 	            "type": "file",
 	            "url": "http://obs-master.endlessm-sf.com:82/shared/eos/pool/core/libd/libdrm/libdrm2_2.4.75-1bem1_i386.deb",
 	            "sha256": "849dbc4dfe3678fcea9cebb29be347a1af6276afc6946b1af1eb14da586a7a10",
+	            "dest": "lib32-debs"
+                },
+                {
+	            "type": "file",
+	            "url": "http://obs-master.endlessm-sf.com:82/shared/eos/pool/core/l/llvm-toolchain-3.6/libllvm3.6_3.6-2ubuntu1bem2_i386.deb",
+	            "sha256": "c711725f3cc830192cba2e1918d5fdd3b71ea9865fe31da0e14ae5d1f5016628",
+	            "dest": "lib32-debs"
+                },
+                {
+	            "type": "file",
+	            "url": "http://obs-master.endlessm-sf.com:82/shared/eos/pool/core/libe/libedit/libedit2_3.1-20140620-2bem1_i386.deb",
+	            "sha256": "00d763459c0dac11a38ff441e5174194e0e3022b5c6f149365f92c1ec1d34e2a",
+	            "dest": "lib32-debs"
+                },
+                {
+	            "type": "file",
+	            "url": "http://obs-master.endlessm-sf.com:82/shared/eos/pool/core/e/elfutils/libelf1_0.160-0ubuntu3bem1_i386.deb",
+	            "sha256": "2bad45ba29305a444d41786ed9cc67e5d835ba540a96205590a0fa11f0402d55",
+	            "dest": "lib32-debs"
+                },
+                {
+	            "type": "file",
+	            "url": "http://obs-master.endlessm-sf.com:82/shared/eos/pool/core/libd/libdrm/libdrm-amdgpu1_2.4.75-1bem1_i386.deb",
+	            "sha256": "75a0e491fd8197df090ec3c7f08fbd307153fa7a61ce6285cf4d6a457e18a538",
 	            "dest": "lib32-debs"
                 },
                 {
