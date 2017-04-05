@@ -104,8 +104,8 @@
 	        },
                 {
 	            "type": "file",
-	            "url": "http://obs-master.endlessm-sf.com:82/shared/eos/pool/core/m/mesa/libgl1-mesa-dri_11.0.8-1ubuntu1endless1beos3.0.1_i386.deb",
-	            "sha256": "cfc3d60573cb416e437dd4bef6611ef1052b1f9fa92a1eca1231655c786032df",
+	            "url": "http://obs-master.endlessm-sf.com:82/shared/eos/pool/core/m/mesa/libgl1-mesa-dri_13.0.4-1ubuntu1endless1bem1_i386.deb",
+	            "sha256": "de962f2a4c3e5b15e62979d983be317e5c36e7eb501158fbe6a9b1f9a8a1cbe4",
 	            "dest": "lib32-debs"
                 },
                 {
@@ -160,6 +160,12 @@
 	            "type": "file",
 	            "url": "http://obs-master.endlessm-sf.com:82/shared/eos/pool/core/libd/libdrm/libdrm-amdgpu1_2.4.75-1bem1_i386.deb",
 	            "sha256": "75a0e491fd8197df090ec3c7f08fbd307153fa7a61ce6285cf4d6a457e18a538",
+	            "dest": "lib32-debs"
+                },
+                {
+	            "type": "file",
+	            "url": "http://obs-master.endlessm-sf.com:82/shared/eos/pool/core/libg/libgcrypt20/libgcrypt20_1.6.3-2+deb8u1bem2_i386.deb",
+	            "sha256": "5d8f4c245bef80e30a33e1cf50ba221e66200d9ed21d6ec4c061b66111d92063",
 	            "dest": "lib32-debs"
                 },
                 {

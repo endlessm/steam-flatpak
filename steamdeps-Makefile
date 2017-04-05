@@ -4,6 +4,6 @@ all:
 install:
 	mkdir -p debroot lib32root /app/lib
 	for i in lib32-debs/*.deb ; do echo $$i ; dpkg-deb -x $$i lib32root ; done
-	mv lib32root/lib32/* lib32root/usr/lib/i386-linux-gnu/* /app/lib
+	cp -R lib32root/lib32/* lib32root/usr/lib/i386-linux-gnu/* lib32root/lib/i386-linux-gnu/* /app/lib
 	# Needed for correctly loading swrast_dri.so in Virtual Box
 	ln -s /app/lib/dri /app/lib/mesa/dri
