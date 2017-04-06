@@ -188,6 +188,7 @@
                     "type": "shell",
                     "commands": [
                         "sed -i s:Icon=steam:Icon=com.valvesoftware.Steam: steam.desktop",
+                        "sed -i s:/usr/bin/steam:/app/bin/steam: steam.desktop",
                         "sed -i s:/usr/lib/:/app/lib/: steam"
                     ]
                 }
