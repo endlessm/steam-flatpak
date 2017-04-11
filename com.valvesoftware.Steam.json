@@ -169,6 +169,12 @@
 	            "dest": "lib32-debs"
                 },
                 {
+	            "type": "file",
+	            "url": "http://obs-master.endlessm-sf.com:82/shared/eos/pool/core/s/s2tc/libtxc-dxtn-s2tc0_0~git20131104-1.1bem1_i386.deb",
+	            "sha256": "87bd3769fd9f7033e13d29a179e4b250c396a3cb3692538338884f28615a15be",
+	            "dest": "lib32-debs"
+                },
+                {
                     "type": "file",
                     "path": "steamdeps-Makefile",
                     "dest-filename": "Makefile"
