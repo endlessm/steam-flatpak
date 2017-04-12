@@ -9,6 +9,7 @@
     "finish-args": [
         "--share=ipc", "--socket=x11",
         "--socket=pulseaudio",
+        "--socket=system-bus",
         "--share=network",
         "--talk-name=org.gnome.SettingsDaemon",
         "--device=all",
