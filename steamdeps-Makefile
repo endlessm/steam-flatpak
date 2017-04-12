@@ -7,3 +7,5 @@ install:
 	cp -R lib32root/lib32/* lib32root/usr/lib/i386-linux-gnu/* lib32root/lib/i386-linux-gnu/* /app/lib
 	# Needed for correctly loading swrast_dri.so in Virtual Box
 	ln -s /app/lib/dri /app/lib/mesa/dri
+	# Needed for correctly loading the textures for some OpenGL games (e.g. Valve's TF2, CS:S, etc.)
+	ln -s libtxc_dxtn_s2tc.so.0 /app/lib/libtxc_dxtn.so
