@@ -1,7 +1,7 @@
 {
     "app-id": "com.valvesoftware.Steam",
     "runtime": "com.endlessm.Platform",
-    "runtime-version": "eos3.1",
+    "runtime-version": "eos3.2",
     "sdk": "com.endlessm.Sdk",
     "branch": "master",
     "command": "steam",
